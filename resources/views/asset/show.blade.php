@@ -71,8 +71,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="http://127.0.0.1:8000/locations">Locations</a>
-                    <a href="http://127.0.0.1:8000/workers">Workers</a>
+                    <a href="/locations">Locations</a>
+                    <a href="/workers">Workers</a>
                 </div>
             </div>
         </div>
