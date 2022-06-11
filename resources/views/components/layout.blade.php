@@ -85,9 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="/">Активы</a>
-                    <a href="/locations">Локации</a>
-                    <a href="/workers">Работники</a>
+                    {!! $title == 'Assets' ? '' : '<a href="/">Активы</a>' !!}
+                    {!! $title == 'Locations' ? '' : '<a href="/locations">Локации</a>' !!}
+                    {!! $title == 'Workers' ? '' : '<a href="/workers">Сотрудники</a>' !!}               
                 </div>
             </div>
         </div>

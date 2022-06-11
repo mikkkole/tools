@@ -25,3 +25,9 @@ Route::get('/', [AssetController::class, 'show']);
 Route::get('/locations', [LocationController::class, 'show']);
 
 Route::get('/workers', [WorkerController::class, 'show']);
+
+//Route::get('/', function() {
+//    return response()->json([
+//     'stuff' => phpinfo()
+//    ]);
+// });
