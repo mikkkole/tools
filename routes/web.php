@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\LocationController;
-use App\Http\Controllers\WorkerController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +24,7 @@ Route::get('/', [AssetController::class, 'show']);
 
 Route::get('/locations', [LocationController::class, 'show']);
 
-Route::get('/workers', [WorkerController::class, 'show']);
+Route::get('/workers', [UserController::class, 'show']);
 
 //Route::get('/', function() {
 //    return response()->json([

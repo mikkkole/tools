@@ -42,10 +42,11 @@
 
             .content {
                 text-align: center;
+                font-size: 13px;
             }
 
             .title {
-                font-size: 84px;
+                font-size: 44px;
             }
 
             .links > a {
@@ -61,6 +62,26 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            table, th, td {
+                border-collapse: collapse;
+                border: 1px solid grey;
+            }
+
+            table {
+                width: 80%;
+            }
+
+            tr:hover td {
+                background: #e8edff;
+                color: black;
+            }
+
+            tr:first-of-type {
+                background: #808990;
+                color: #fff;
+            }
+
         </style>
     </head>
     <body>
@@ -81,8 +102,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{ $slot }}
+                {{ $slot }}
                 </div>
+
+                <table>
+                {{ $table }}
+                </table>
 
                 <div class="links">
                     {!! $title == 'Assets' ? '' : '<a href="/">Активы</a>' !!}
