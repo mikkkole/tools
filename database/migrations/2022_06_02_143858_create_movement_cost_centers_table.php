@@ -27,6 +27,6 @@ class CreateMovementCostCentersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movement_cost_center');
+        Schema::dropIfExists('movement_cost_centers');
     }
 }

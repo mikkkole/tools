@@ -31,18 +31,18 @@
                     <td>{{ $asset->model }}</td>
                     <td>{{ $asset->description }}</td>
                     <td>{{ $asset->serial_number }}</td>
-                    <td>{{ $asset->assets_group_id }}</td>
-                    <td>{{ $asset->assets_manufacturer_id }}</td>
-                    <td>{{ $asset->assets_status_id }}</td>
-                    <td>{{ $asset->assets_category_id }}</td>
-                    <td>{{ $asset->default_location_id }}</td>
-                    <td>{{ $asset->current_location_id }}</td>
+                    <td>{{ $asset->assetsGroup->name }}</td>
+                    <td>{{ $asset->assetsManufacturer->name }}</td>
+                    <td>{{ $asset->assetsStatus->name }}</td>
+                    <td>{{ $asset->assetsCategory->name }}</td>
+                    <td>{{ $asset->defaultLocation->name }}</td>
+                    <td>{{ $asset->currentLocation->name }}</td>
                     <td>{{ $asset->scancode }}</td>
-                    <td>{{ $asset->assets_scancode_type_id }}</td>
-                    <td>{{ $asset->assets_ownership_type_id }}</td>
-                    <td>{{ $asset->assets_use_terms_id }}</td>
-                    <td>{{ $asset->assets_cost_code_id }}</td>
-                    <td>{{ $asset->company_id }}</td>
+                    <td>{{ $asset->assetsScancodeType->name }}</td>
+                    <td>{{ $asset->assetsOwnershipType->name }}</td>
+                    <td>{{ $asset->assetsUseTerms->name }}</td>
+                    <td>{{ $asset->assetsCostCode->name }}</td>
+                    <td>{{ $asset->company->name }}</td>
                     <td>{{ $asset->created_at }}</td>
                     <td>{{ $asset->updated_at }}</td>
                 </tr>

@@ -27,6 +27,6 @@ class CreateUserResponsibilitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_responsibility');
+        Schema::dropIfExists('user_responsibilities');
     }
 }

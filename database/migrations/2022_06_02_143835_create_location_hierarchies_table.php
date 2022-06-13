@@ -27,6 +27,6 @@ class CreateLocationHierarchiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location_hierarchy');
+        Schema::dropIfExists('location_hierarchies');
     }
 }

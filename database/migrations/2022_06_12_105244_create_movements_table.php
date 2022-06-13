@@ -17,7 +17,6 @@ class CreateMovementsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->foreignId('asset_id')->constrained();
             $table->foreignId('location_from_id')->constrained('locations');
             $table->foreignId('location_to_id')->constrained('locations');
             $table->foreignId('user_send_id')->constrained('users');
@@ -29,7 +28,6 @@ class CreateMovementsTable extends Migration
             $table->foreignId('movement_task_code_id')->constrained();
             $table->foreignId('company_id')->constrained();
 
-            $table->integer('movement_number'); //в одном перемещении несколько id, активов
             $table->string('app_used');
             $table->string('comments');
 

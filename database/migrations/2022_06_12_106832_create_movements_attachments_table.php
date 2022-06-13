@@ -28,6 +28,6 @@ class CreateMovementsAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movements_attachment');
+        Schema::dropIfExists('movements_attachments');
     }
 }

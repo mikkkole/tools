@@ -112,7 +112,10 @@
                 <div class="links">
                     {!! $title == 'Assets' ? '' : '<a href="/">Активы</a>' !!}
                     {!! $title == 'Locations' ? '' : '<a href="/locations">Локации</a>' !!}
-                    {!! $title == 'Workers' ? '' : '<a href="/workers">Сотрудники</a>' !!}               
+                    {!! $title == 'Workers' ? '' : '<a href="/workers">Сотрудники</a>' !!}
+                    {!! $title == 'Movements' ? '' : '<a href="/movements">Перемещения</a>' !!}
+                    {!! $title == 'Administration' ? '' : '<a href="/administration">Администрирование</a>' !!}
+                                   
                 </div>
             </div>
         </div>

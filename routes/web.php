@@ -3,6 +3,8 @@
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MovementController;
+use App\Http\Controllers\AdministrationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +27,10 @@ Route::get('/', [AssetController::class, 'show']);
 Route::get('/locations', [LocationController::class, 'show']);
 
 Route::get('/workers', [UserController::class, 'show']);
+
+Route::get('/movements', [MovementController::class, 'show']);
+
+Route::get('/administration', [AdministrationController::class, 'show']);
 
 //Route::get('/', function() {
 //    return response()->json([

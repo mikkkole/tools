@@ -27,6 +27,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service');
+        Schema::dropIfExists('services');
     }
 }

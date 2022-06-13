@@ -28,6 +28,6 @@ class CreateAssetsImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_image');
+        Schema::dropIfExists('assets_images');
     }
 }

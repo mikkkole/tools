@@ -27,6 +27,6 @@ class CreateAssetsManufacturersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_manufacturer');
+        Schema::dropIfExists('assets_manufacturers');
     }
 }

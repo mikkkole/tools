@@ -27,6 +27,6 @@ class CreateAssetsScancodeTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_scancode_type');
+        Schema::dropIfExists('assets_scancode_types');
     }
 }

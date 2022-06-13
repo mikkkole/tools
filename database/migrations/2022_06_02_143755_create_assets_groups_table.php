@@ -27,6 +27,6 @@ class CreateAssetsGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_group');
+        Schema::dropIfExists('assets_groups');
     }
 }

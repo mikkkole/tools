@@ -28,6 +28,6 @@ class CreateAssetsAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_attachment');
+        Schema::dropIfExists('assets_attachments');
     }
 }

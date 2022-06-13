@@ -27,6 +27,6 @@ class CreateAssetsStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_status');
+        Schema::dropIfExists('assets_statuses');
     }
 }

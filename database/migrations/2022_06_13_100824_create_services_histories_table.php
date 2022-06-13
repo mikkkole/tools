@@ -30,6 +30,6 @@ class CreateServicesHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('history_services');
+        Schema::dropIfExists('services_histories');
     }
 }

@@ -27,6 +27,6 @@ class CreateMovementTaskCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movement_task_code');
+        Schema::dropIfExists('movement_task_codes');
     }
 }

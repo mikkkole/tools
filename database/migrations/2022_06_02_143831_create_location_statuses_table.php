@@ -27,6 +27,6 @@ class CreateLocationStatusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location_status');
+        Schema::dropIfExists('location_statuses');
     }
 }

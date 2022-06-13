@@ -27,6 +27,6 @@ class CreateAssetsOwnershipTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_ownership_type');
+        Schema::dropIfExists('assets_ownership_types');
     }
 }

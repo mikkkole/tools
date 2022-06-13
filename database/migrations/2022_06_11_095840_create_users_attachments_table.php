@@ -28,6 +28,6 @@ class CreateUsersAttachmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_attachment');
+        Schema::dropIfExists('users_attachments');
     }
 }

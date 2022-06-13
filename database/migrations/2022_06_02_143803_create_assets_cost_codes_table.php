@@ -27,6 +27,6 @@ class CreateAssetsCostCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assets_cost_code');
+        Schema::dropIfExists('assets_cost_codes');
     }
 }
