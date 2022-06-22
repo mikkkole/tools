@@ -168,14 +168,14 @@ class DatabaseSeeder extends Seeder
             'filename' => Str::random(5) . '.jpg',
             'created_at' => date_format( date_create() , 'Y-m-d H:i:s'),
             'updated_at' => date_format( date_create() , 'Y-m-d H:i:s'),
-            'user_ref_id' => rand(1, $i),
+            'user_id' => rand(1, $i),
         ]);
         
         DB::table('users_attachments')->insert([
             'filename' => Str::random(5) . '.pdf',
             'created_at' => date_format( date_create() , 'Y-m-d H:i:s'),
             'updated_at' => date_format( date_create() , 'Y-m-d H:i:s'),
-            'user_ref_id' => rand(1, $i),
+            'user_id' => rand(1, $i),
         ]);
         
         DB::table('locations')->insert([
@@ -215,14 +215,14 @@ class DatabaseSeeder extends Seeder
             'filename' => Str::random(5) . '.jpg',
             'created_at' => date_format( date_create() , 'Y-m-d H:i:s'),
             'updated_at' => date_format( date_create() , 'Y-m-d H:i:s'),
-            'asset_ref_id' => rand(1, $i),
+            'asset_id' => rand(1, $i),
         ]);
         
         DB::table('assets_attachments')->insert([
             'filename' => Str::random(5) . '.pdf',
             'created_at' => date_format( date_create() , 'Y-m-d H:i:s'),
             'updated_at' => date_format( date_create() , 'Y-m-d H:i:s'),
-            'asset_ref_id' => rand(1, $i),
+            'asset_id' => rand(1, $i),
         ]);
         
         DB::table('movements')->insert([
@@ -248,7 +248,7 @@ class DatabaseSeeder extends Seeder
             'filename' => Str::random(5) . '.pdf',
             'created_at' => date_format( date_create() , 'Y-m-d H:i:s'),
             'updated_at' => date_format( date_create() , 'Y-m-d H:i:s'),
-            'movement_ref_id' => rand(1, $i),
+            'movement_id' => rand(1, $i),
         ]);
         
         DB::table('services_histories')->insert([

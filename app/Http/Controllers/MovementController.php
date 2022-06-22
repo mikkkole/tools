@@ -16,4 +16,14 @@ class MovementController extends Controller
             'movements' => $movements,
         ]);
     }
+
+    public function one($id) 
+    {
+        $movement = Movement::where('id', $id)->first();
+        return view('movement.one', [
+            'title' => 'movement',
+            'slot' => 'Свойства Перемещения',
+            'movement' => $movement,
+        ]);
+    }
 }

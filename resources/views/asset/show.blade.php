@@ -6,6 +6,7 @@
     <br>
     <x-slot name='table'>
             <tr>
+                <td>Изображение</td>
                 <td>Название</td>
                 <td>Модель</td>
                 <td>Описание</td>
@@ -27,7 +28,15 @@
             </tr>
             @foreach ($assets as $asset)
                 <tr>
-                    <td>{{ $asset->name }}</td>
+                    <td>
+                    @if ($asset->assetsImageFirst($asset->id))
+                    <a href="/images/{{ $asset->assetsImageFirst($asset->id)->filename }}">
+                    <img src="/images/{{ $asset->assetsImageFirst($asset->id)->filename }}"
+                    alt="{{ $asset->name }}" max-height=100px width=100px></img></a>
+                    @endif
+
+                    </td>
+                    <td><a href="/asset/{{ $asset->id }}">{{ $asset->name }}</a></td>
                     <td>{{ $asset->model }}</td>
                     <td>{{ $asset->description }}</td>
                     <td>{{ $asset->serial_number }}</td>
@@ -35,8 +44,12 @@
                     <td>{{ $asset->assetsManufacturer->name }}</td>
                     <td>{{ $asset->assetsStatus->name }}</td>
                     <td>{{ $asset->assetsCategory->name }}</td>
-                    <td>{{ $asset->defaultLocation->name }}</td>
-                    <td>{{ $asset->currentLocation->name }}</td>
+                    <td>
+                        <a href="/location/{{ $asset->defaultLocation->id }}">{{ $asset->defaultLocation->name }}</a>
+                    </td>
+                    <td>
+                        <a href="/location/{{ $asset->currentLocation->id }}">{{ $asset->currentLocation->name }}</a>
+                    </td>
                     <td>{{ $asset->scancode }}</td>
                     <td>{{ $asset->assetsScancodeType->name }}</td>
                     <td>{{ $asset->assetsOwnershipType->name }}</td>

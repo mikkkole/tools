@@ -84,4 +84,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Location::class);
     }
+
+    public function fullName()
+    {
+        $fullName = $this->name . ' ' .          
+        $this->patronymic . ' ' . 
+        $this->surname;
+        
+        return $fullName;
+    }
+
 }

@@ -3,12 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Asset;
-use App\LocationType;
-use App\LocationStatus;
-use App\LocationHierarchy;
-use App\User;
-use App\Company;
 
 class Location extends Model
 {

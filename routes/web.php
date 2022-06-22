@@ -32,6 +32,16 @@ Route::get('/movements', [MovementController::class, 'show']);
 
 Route::get('/administration', [AdministrationController::class, 'show']);
 
+Route::get('/administration/{categoryName}', [AdministrationController::class, 'one']);
+
+Route::get('/asset/{id}', [AssetController::class, 'one'])->where('id', '[0-9]+');
+
+Route::get('/location/{id}', [LocationController::class, 'one'])->where('id', '[0-9]+');
+
+Route::get('/movement/{id}', [MovementController::class, 'one'])->where('id', '[0-9]+');
+
+Route::get('/user/{id}', [UserController::class, 'one'])->where('id', '[0-9]+');
+
 //Route::get('/', function() {
 //    return response()->json([
 //     'stuff' => phpinfo()

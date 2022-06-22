@@ -56,7 +56,7 @@
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
-                text-transform: uppercase;
+                text-transform: uppercase;                
             }
 
             .m-b-md {
@@ -66,6 +66,7 @@
             table, th, td {
                 border-collapse: collapse;
                 border: 1px solid grey;
+                margin:0 auto 0 auto;
             }
 
             table {
@@ -81,6 +82,10 @@
                 background: #808990;
                 color: #fff;
             }
+            .first {
+                background: #808990;
+                color: #fff;
+                }
 
         </style>
     </head>

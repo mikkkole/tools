@@ -17,7 +17,7 @@ class CreateUsersImagesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('filename');
-            $table->foreignId('user_ref_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 

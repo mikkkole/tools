@@ -16,4 +16,14 @@ class UserController extends Controller
             'users' => $users,
         ]);
     }
+
+    public function one($id) 
+    {
+        $user = User::where('id', $id)->first();
+        return view('user.one', [
+            'title' => 'user',
+            'slot' => 'Свойства Работника',
+            'user' => $user,
+        ]);
+    }
 }

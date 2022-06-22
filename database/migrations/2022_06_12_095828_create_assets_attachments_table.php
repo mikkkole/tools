@@ -17,7 +17,7 @@ class CreateAssetsAttachmentsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('filename');
-            $table->foreignId('asset_ref_id')->constrained('assets');
+            $table->foreignId('asset_id')->constrained('assets');
         });
     }
 

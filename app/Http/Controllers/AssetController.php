@@ -17,4 +17,15 @@ class AssetController extends Controller
             'assets' => $assets,
         ]);
     }
+
+    public function one($id) 
+    {
+        $asset = Asset::where('id', $id)->first();
+        //dump($asset);
+        return view('asset.one', [
+            'title' => 'Asset',
+            'slot' => 'Свойства Актива',
+            'asset' => $asset,
+        ]);
+    }
 }

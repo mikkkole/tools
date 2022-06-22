@@ -16,4 +16,14 @@ class LocationController extends Controller
             'locations' => $locations,
         ]);
     }
+
+    public function one($id) 
+    {
+        $location = Location::where('id', $id)->first();
+        return view('location.one', [
+            'title' => 'location',
+            'slot' => 'Свойства Локации',
+            'location' => $location,
+        ]);
+    }
 }

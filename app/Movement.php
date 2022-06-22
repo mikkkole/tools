@@ -9,11 +9,6 @@ class Movement extends Model
     public function assetsList()
     {
         return $this->hasMany(AssetsList::class);
-        // $assets[] = '';
-        // foreach ($this->hasMany(AssetsList::class) as $list) {
-        //     $assets[] = $list->asset->name;
-        // }
-        // return $assets;
     }    
     
     public function locationFrom()

@@ -20,11 +20,10 @@
                 <td>Создан</td>
                 <td>Изменен</td>
             </tr>
-            @foreach ($users as $user)
                 <tr>
-                    <td><a href="/user/{{ $user->id }}">{{ $user->name }}</a></td>
-                    <td><a href="/user/{{ $user->id }}">{{ $user->patronymic }}</a></td>
-                    <td><a href="/user/{{ $user->id }}">{{ $user->surname }}</a></td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->patronymic }}</td>
+                    <td>{{ $user->surname }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->email_verified_at }}</td>
                     <td>{{ $user->login }}</td>
@@ -37,6 +36,5 @@
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
                 </tr>
-            @endforeach
     </x-slot>    
 </x-layout>

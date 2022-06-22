@@ -15,11 +15,8 @@
                 <td>Создан</td>
                 <td>Изменен</td>
             </tr>
-            @foreach ($locations as $location)
                 <tr>
-                    <td>
-                        <a href="/location/{{ $location->id }}">{{ $location->name }}</a>
-                    </td>
+                    <td>{{ $location->name }}</td>
                     <td>{{ $location->locationType->name }}</td>
                     <td>{{ $location->locationStatus->name }}</td>
                     <td>{{ $location->locationHierarchy->name }}</td>
@@ -28,11 +25,10 @@
                     </td>
                     <td>
                         <a href="/location/{{ $location->locationParent->id }}">{{ $location->locationParent->name }}</a>
-                    </td>                    
+                    </td>                     
                     <td>{{ $location->company->name }}</td>
                     <td>{{ $location->created_at }}</td>
                     <td>{{ $location->updated_at }}</td>
                 </tr>
-            @endforeach
     </x-slot>       
 </x-layout>

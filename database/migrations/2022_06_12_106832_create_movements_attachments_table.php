@@ -17,7 +17,7 @@ class CreateMovementsAttachmentsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('filename');
-            $table->foreignId('movement_ref_id')->constrained('movements');
+            $table->foreignId('movement_id')->constrained('movements');
         });
     }
 

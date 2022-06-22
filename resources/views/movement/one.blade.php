@@ -24,9 +24,8 @@
                 <td>Создан</td>
                 <td>Изменен</td>
             </tr>
-            @foreach ($movements as $movement)
                 <tr>
-                    <td><a href="/movement/{{ $movement->id }}">{{ $movement->id }}</a></td>
+                    <td>{{ $movement->id }}</td>
                     <td>{{ $movement->comments }}</td>
                     <td>{{ $movement->app_used }}</td>
                     <td>
@@ -39,7 +38,7 @@
                     </td>
                     <td>
                         <a href="/location/{{ $movement->locationTo->id }}">{{ $movement->locationTo->name }}                            
-                    </td>
+                    </td>                   
                     <td>{{ $movement->movementStatus->name }}</td>
                     <td>{{ $movement->confirmed_at }}</td>
                     <td>
@@ -61,6 +60,5 @@
                     <td>{{ $movement->created_at }}</td>
                     <td>{{ $movement->updated_at }}</td>
                 </tr>
-            @endforeach
     </x-slot>       
 </x-layout>

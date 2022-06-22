@@ -7,8 +7,8 @@ use App\Asset;
 
 class AssetsImage extends Model
 {
-    public function assets()
+    public function asset()
     {
-        return $this->hasOne(Asset::class);
+        return $this->belongsTo(Asset::class);
     }
 }
