@@ -32,7 +32,7 @@ Route::get('/movements', [MovementController::class, 'show']);
 
 Route::get('/administration', [AdministrationController::class, 'show']);
 
-Route::get('/administration/{categoryName}', [AdministrationController::class, 'one']);
+Route::match(['get', 'post'], '/administration/{categoryName}', [AdministrationController::class, 'one']);
 
 Route::get('/asset/{id}', [AssetController::class, 'one'])->where('id', '[0-9]+');
 
