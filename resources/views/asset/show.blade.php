@@ -40,22 +40,22 @@
                     <td>{{ $asset->model }}</td>
                     <td>{{ $asset->description }}</td>
                     <td>{{ $asset->serial_number }}</td>
-                    <td>{{ $asset->assetsGroup->name }}</td>
-                    <td>{{ $asset->assetsManufacturer->name }}</td>
-                    <td>{{ $asset->assetsStatus->name }}</td>
-                    <td>{{ $asset->assetsCategory->name }}</td>
+                    <td>{{ $asset->assetsGroup->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $asset->assetsManufacturer->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $asset->assetsStatus->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $asset->assetsCategory->name ?? 'УДАЛЕН' }}</td>
                     <td>
-                        <a href="/location/{{ $asset->defaultLocation->id }}">{{ $asset->defaultLocation->name }}</a>
+                        <a href="/location/{{ $asset->defaultLocation->id ?? 'УДАЛЕН' }}">{{ $asset->defaultLocation->name ?? 'УДАЛЕН' }}</a>
                     </td>
                     <td>
-                        <a href="/location/{{ $asset->currentLocation->id }}">{{ $asset->currentLocation->name }}</a>
+                        <a href="/location/{{ $asset->currentLocation->id ?? 'УДАЛЕН' }}">{{ $asset->currentLocation->name ?? 'УДАЛЕН' }}</a>
                     </td>
                     <td>{{ $asset->scancode }}</td>
-                    <td>{{ $asset->assetsScancodeType->name }}</td>
-                    <td>{{ $asset->assetsOwnershipType->name }}</td>
-                    <td>{{ $asset->assetsUseTerms->name }}</td>
-                    <td>{{ $asset->assetsCostCode->name }}</td>
-                    <td>{{ $asset->company->name }}</td>
+                    <td>{{ $asset->assetsScancodeType->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $asset->assetsOwnershipType->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $asset->assetsUseTerms->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $asset->assetsCostCode->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $asset->company->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $asset->created_at }}</td>
                     <td>{{ $asset->updated_at }}</td>
                 </tr>

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\AssetsCategory;
 
 class AdministrationController extends Controller
 {
@@ -21,6 +20,7 @@ class AdministrationController extends Controller
         $id = $request->input('id');
         $newName = $request->input('newName');
         $addNewName = $request->input('addNewName');
+        $deleteId = $request->input('deleteId');
 
         if (isset($newName)) {
             $categoryItem = $categoryFullName::find($id);
@@ -35,7 +35,16 @@ class AdministrationController extends Controller
             $categoryItem->save();
         }
 
-        $categoryItems = $categoryFullName::all();
+        if (isset($deleteId)) {
+            $deleteItem = $categoryFullName::withTrashed()->where('id', $deleteId)->first();
+            if ($deleteItem->deleted_at == NULL) {
+                $deleteItem->delete();
+            } else {
+                $deleteItem->restore();
+            }
+        }
+
+        $categoryItems = $categoryFullName::withTrashed()->get();
 
         return view('administration.one', [
             'title' => $categoryName,
@@ -43,12 +52,5 @@ class AdministrationController extends Controller
             'categoryItems' => $categoryItems,
             'id' => $id,
         ]);
-    }
-
-    public function edit(Request $request)
-    {
-        $name = $request->input('name');
-        dump($request->all());
-        return view('administration.edit', ['name' => $name]);
     }
 }

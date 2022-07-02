@@ -29,11 +29,11 @@
                     <td>{{ $user->email_verified_at }}</td>
                     <td>{{ $user->login }}</td>
                     <td>{{ $user->position }}</td>
-                    <td>{{ $user->userRole->name }}</td>
-                    <td>{{ $user->userType->name }}</td>
-                    <td>{{ $user->userResponsibility->name }}</td>
-                    <td>{{ $user->userLanguage->name }}</td>
-                    <td>{{ $user->company->name }}</td>
+                    <td>{{ $user->userRole->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $user->userType->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $user->userResponsibility->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $user->userLanguage->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $user->company->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
                 </tr>

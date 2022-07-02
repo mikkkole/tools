@@ -17,16 +17,16 @@
             </tr>
                 <tr>
                     <td>{{ $location->name }}</td>
-                    <td>{{ $location->locationType->name }}</td>
-                    <td>{{ $location->locationStatus->name }}</td>
-                    <td>{{ $location->locationHierarchy->name }}</td>
+                    <td>{{ $location->locationType->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $location->locationStatus->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $location->locationHierarchy->name ?? 'УДАЛЕН' }}</td>
                     <td>
-                        <a href="/user/{{ $location->locationManager->id }}">{{ $location->locationManager->fullName() }}</a>
+                        <a href="/user/{{ $location->locationManager->id ?? 'УДАЛЕН' }}">{{ $location->locationManager->fullName() ?? 'УДАЛЕН' }}</a>
                     </td>
                     <td>
-                        <a href="/location/{{ $location->locationParent->id }}">{{ $location->locationParent->name }}</a>
+                        <a href="/location/{{ $location->locationParent->id ?? 'УДАЛЕН' }}">{{ $location->locationParent->name ?? 'УДАЛЕН' }}</a>
                     </td>                     
-                    <td>{{ $location->company->name }}</td>
+                    <td>{{ $location->company->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $location->created_at }}</td>
                     <td>{{ $location->updated_at }}</td>
                 </tr>

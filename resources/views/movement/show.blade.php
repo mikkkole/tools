@@ -31,33 +31,33 @@
                     <td>{{ $movement->app_used }}</td>
                     <td>
                         @foreach ($movement->assetsList as $list)
-                        <a href="/asset/{{ $list->asset->id }}">{{ $list->asset->name }}</a> </br>
+                        <a href="/asset/{{ $list->asset->id ?? 'УДАЛЕН' }}">{{ $list->asset->name ?? 'УДАЛЕН' }}</a> </br>
                         @endforeach
                     </td>
                     <td>
-                        <a href="/location/{{ $movement->locationFrom->id }}">{{ $movement->locationFrom->name }}
+                        <a href="/location/{{ $movement->locationFrom->id ?? 'УДАЛЕН' }}">{{ $movement->locationFrom->name ?? 'УДАЛЕН' }}
                     </td>
                     <td>
-                        <a href="/location/{{ $movement->locationTo->id }}">{{ $movement->locationTo->name }}                            
+                        <a href="/location/{{ $movement->locationTo->id ?? 'УДАЛЕН' }}">{{ $movement->locationTo->name ?? 'УДАЛЕН' }}                            
                     </td>
-                    <td>{{ $movement->movementStatus->name }}</td>
+                    <td>{{ $movement->movementStatus->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $movement->confirmed_at }}</td>
                     <td>
-                        <a href="/user/{{ $movement->userComfirmed->id }}">{{ $movement->userComfirmed->fullName() }}
+                        <a href="/user/{{ $movement->userComfirmed->id ?? 'УДАЛЕН' }}">{{ $movement->userComfirmed->fullName() ?? 'УДАЛЕН' }}
                     </td>
                     <td>
-                        <a href="/user/{{ $movement->userSend->id }}">{{ $movement->userSend->fullName() }}
+                        <a href="/user/{{ $movement->userSend->id ?? 'УДАЛЕН' }}">{{ $movement->userSend->fullName() ?? 'УДАЛЕН' }}
                     </td>
                     <td>
-                        <a href="/user/{{ $movement->userRecieved->id }}">{{ $movement->userRecieved->fullName() }}
+                        <a href="/user/{{ $movement->userRecieved->id ?? 'УДАЛЕН' }}">{{ $movement->userRecieved->fullName() ?? 'УДАЛЕН' }}
                     </td>
                     <td>
-                        <a href="/user/{{ $movement->userWrited->id }}">{{ $movement->userWrited->fullName() }}
+                        <a href="/user/{{ $movement->userWrited->id ?? 'УДАЛЕН' }}">{{ $movement->userWrited->fullName() ?? 'УДАЛЕН' }}
                     </td>
                     <td>{{ $movement->returned_at }}</td>
-                    <td>{{ $movement->movementCostCenter->name }}</td>
-                    <td>{{ $movement->movementTaskCode->name }}</td>
-                    <td>{{ $movement->company->name }}</td>
+                    <td>{{ $movement->movementCostCenter->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $movement->movementTaskCode->name ?? 'УДАЛЕН' }}</td>
+                    <td>{{ $movement->company->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $movement->created_at }}</td>
                     <td>{{ $movement->updated_at }}</td>
                 </tr>

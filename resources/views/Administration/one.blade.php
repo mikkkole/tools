@@ -11,7 +11,13 @@
             </tr>
             @foreach ($categoryItems as $categoryItem)
             <tr>
-                <td>{{ $categoryItem->name }}</td>
+                <td>
+                    @if ($categoryItem->deleted_at == NULL)
+                        {{ $categoryItem->name }}
+                    @else
+                        <del>{{ $categoryItem->name }}</del>
+                    @endif                    
+                </td>
                 <td>
                 <form action="" method="POST">
                     @csrf
@@ -23,6 +29,15 @@
                         <input type="submit" value="Изменить">
                     @endif
                 </form>
+                <form action="" method="POST">
+                    @csrf
+                    <input type="hidden" name="deleteId" value="{{ $categoryItem->id }}">
+                    @if ($categoryItem->deleted_at == NULL)
+                        <input type="submit" value="Удалить">
+                    @else
+                        <input type="submit" value="Восстановить">
+                    @endif
+                </form>                
                 </td>
             </tr>
             @endforeach
