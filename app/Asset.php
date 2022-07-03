@@ -51,7 +51,7 @@ class Asset extends Model
         
     public function assetsImage()
     {
-        return $this->hasMany(AssetsImage::class);
+        return $this->hasMany(AssetsImage::class)->withTrashed();
     }
      
     public function assetsImageFirst($assetId)

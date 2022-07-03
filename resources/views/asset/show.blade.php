@@ -27,7 +27,11 @@
                 <td>Изменен</td>
             </tr>
             @foreach ($assets as $asset)
+                @if ($asset->deleted_at !== NULL)
+                <tr bgcolor="red">
+                @else
                 <tr>
+                @endif
                     <td>
                     @if ($asset->assetsImageFirst($asset->id))
                     <a href="/images/{{ $asset->assetsImageFirst($asset->id)->filename }}">
@@ -60,5 +64,17 @@
                     <td>{{ $asset->updated_at }}</td>
                 </tr>
             @endforeach
-    </x-slot>    
+            <td  colspan="19">
+                <form action="/asset/addNew" method="POST">
+                    @csrf
+                    Выбрать шаблон: 
+                    <select name="newAssetsTemplate">
+                    <option>Нет</option>
+                    <option>Шаблон 1</option>
+                    <option>Шаблон 2</option>
+                    </select>
+                    <input type="submit" value="Добавить новый актив">
+                </form>
+                </td>
+    </x-slot>
 </x-layout>

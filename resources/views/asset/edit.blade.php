@@ -5,7 +5,7 @@
     {{ $slot }}
     <br>
     <x-slot name='table'>
-            <form action="/asset/{{ $asset->id }}" method="POST">
+        <form action="/asset/{{ $asset->id ?? 0 }} " method="POST" enctype="multipart/form-data">
             @csrf
             <tr>
                 <td>Название</td>
@@ -24,47 +24,67 @@
                 <td><textarea name="newDescription">{{ $asset->description }}</textarea></textarea></td>
                 <td><input name="newSerialNumber" value="{{ $asset->serial_number }}"></td>
                 <td>
-                    <select name="newAssetsGroupName">
-                    <option>{{ $asset->assetsGroup->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newAssetsGroupId">
+                        <option value="{{ $asset->assetsGroup->id ?? NULL }}">
+                            {{ $asset->assetsGroup->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($assetsGroups as $assetsGroup)
-                            @continue($assetsGroup->name == ($asset->assetsGroup->name ?? ''))
-                            <option>{{ $assetsGroup->name }}</option>
+                            @continue($assetsGroup->id == ($asset->assetsGroup->id ?? ''))
+                            <option value="{{ $assetsGroup->id }}">
+                                {{ $assetsGroup->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newAssetsManufacturerName">
-                    <option>{{ $asset->assetsManufacturer->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newAssetsManufacturerId">
+                        <option value="{{ $asset->assetsManufacturer->id ?? NULL }}">
+                            {{ $asset->assetsManufacturer->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($assetsManufacturers as $assetsManufacturer)
-                            @continue($assetsManufacturer->name == ($asset->assetsManufacturer->name ?? ''))
-                            <option>{{ $assetsManufacturer->name }}</option>
+                            @continue($assetsManufacturer->id == ($asset->assetsManufacturer->id ?? ''))
+                            <option value="{{ $assetsManufacturer->id }}">
+                                {{ $assetsManufacturer->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newAssetsStatusName">
-                    <option>{{ $asset->assetsStatus->name ?? 'УДАЛЕН' }}</option>
-                        @foreach ($assetsStatuss as $assetsStatus)
-                            @continue($assetsStatus->name == ($asset->assetsStatus->name ?? ''))
-                            <option>{{ $assetsStatus->name }}</option>
+                    <select name="newAssetsStatusId">
+                        <option value="{{ $asset->assetsStatus->id ?? NULL }}">
+                            {{ $asset->assetsStatus->name ?? 'УДАЛЕН' }}
+                        </option>
+                        @foreach ($assetsStatuses as $assetsStatus)
+                            @continue($assetsStatus->id == ($asset->assetsStatus->id ?? ''))
+                            <option value="{{ $assetsStatus->id }}">
+                                {{ $assetsStatus->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newAssetsCategoryName">
-                    <option>{{ $asset->assetsCategory->name ?? 'УДАЛЕН' }}</option>
-                        @foreach ($assetsCategorys as $assetsCategory)
-                            @continue($assetsCategory->name == ($asset->assetsCategory->name ?? ''))
-                            <option>{{ $assetsCategory->name }}</option>
+                    <select name="newAssetsCategoryId">
+                        <option value="{{ $asset->assetsCategory->id ?? NULL }}">
+                            {{ $asset->assetsCategory->name ?? 'УДАЛЕН' }}
+                        </option>
+                        @foreach ($assetsCategories as $assetsCategory)
+                            @continue($assetsCategory->id == ($asset->assetsCategory->id ?? ''))
+                            <option value="{{ $assetsCategory->id }}">
+                                {{ $assetsCategory->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newDefaultLocationName">
-                    <option>{{ $asset->defaultLocation->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newDefaultLocationId">
+                        <option value="{{ $asset->defaultLocation->id ?? NULL }}">
+                            {{ $asset->defaultLocation->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($locations as $location)
-                            @continue($location->name == ($asset->defaultLocation->name ?? ''))
-                            <option>{{ $location->name }}</option>
+                            @continue($location->id == ($asset->defaultLocation->id ?? ''))
+                            <option value="{{ $location->id }}">
+                                {{ $location->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
@@ -83,57 +103,81 @@
             </tr>
             <tr>
                 <td>
-                    <select name="newCurrentLocationName">
-                    <option>{{ $asset->currentLocation->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newCurrentLocationId">
+                        <option value="{{ $asset->currentLocation->id ?? NULL }}">
+                            {{ $asset->currentLocation->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($locations as $location)
-                            @continue($location->name == ($asset->currentLocation->name ?? ''))
-                            <option>{{ $location->name }}</option>
+                            @continue($location->id == ($asset->currentLocation->id ?? ''))
+                            <option value="{{ $location->id }}">
+                                {{ $location->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td><input name="newScancode" value="{{ $asset->scancode }}"></td>
                 <td>
-                    <select name="newAssetsScancodeTypeName">
-                    <option>{{ $asset->assetsScancodeType->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newAssetsScancodeTypeId">
+                        <option value="{{ $asset->assetsScancodeType->id ?? NULL }}">
+                            {{ $asset->assetsScancodeType->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($assetsScancodeTypes as $assetsScancodeType)
-                            @continue($assetsScancodeType->name == ($asset->assetsScancodeType->name ?? ''))
-                            <option>{{ $assetsScancodeType->name }}</option>
+                            @continue($assetsScancodeType->id == ($asset->assetsScancodeType->id ?? ''))
+                            <option value="{{ $assetsScancodeType->id }}">
+                                {{ $assetsScancodeType->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newAssetsOwnershipTypeName">
-                    <option>{{ $asset->assetsOwnershipType->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newAssetsOwnershipTypeId">
+                        <option value="{{ $asset->assetsOwnershipType->id ?? NULL }}">
+                            {{ $asset->assetsOwnershipType->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($assetsOwnershipTypes as $assetsOwnershipType)
-                            @continue($assetsOwnershipType->name == ($asset->assetsOwnershipType->name ?? ''))
-                            <option>{{ $assetsOwnershipType->name }}</option>
+                            @continue($assetsOwnershipType->id == ($asset->assetsOwnershipType->id ?? ''))
+                            <option value="{{ $assetsOwnershipType->id }}">
+                                {{ $assetsOwnershipType->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newAssetsUseTermsName">
-                    <option>{{ $asset->assetsUseTerms->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newAssetsUseTermsId">
+                        <option value="{{ $asset->assetsUseTerms->id ?? NULL }}">
+                            {{ $asset->assetsUseTerms->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($assetsUseTermses as $assetsUseTerms)
-                            @continue($assetsUseTerms->name == ($asset->assetsUseTerms->name ?? ''))
-                            <option>{{ $assetsUseTerms->name }}</option>
+                            @continue($assetsUseTerms->id == ($asset->assetsUseTerms->id ?? ''))
+                            <option value="{{ $assetsUseTerms->id }}">
+                                {{ $assetsUseTerms->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newAssetsCostCodeName">
-                    <option>{{ $asset->assetsCostCode->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newAssetsCostCodeId">
+                        <option value="{{ $asset->assetsCostCode->id ?? NULL }}">
+                            {{ $asset->assetsCostCode->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($assetsCostCodes as $assetsCostCode)
-                            @continue($assetsCostCode->name == ($asset->assetsCostCode->name ?? ''))
-                            <option>{{ $assetsCostCode->name }}</option>
+                            @continue($assetsCostCode->id == ($asset->assetsCostCode->id ?? ''))
+                            <option value="{{ $assetsCostCode->id }}">
+                                {{ $assetsCostCode->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
                 <td>
-                    <select name="newCompanyName">
-                    <option>{{ $asset->company->name ?? 'УДАЛЕН' }}</option>
+                    <select name="newCompanyId">
+                        <option value="{{ $asset->company->id ?? NULL }}">
+                            {{ $asset->company->name ?? 'УДАЛЕН' }}
+                        </option>
                         @foreach ($companies as $company)
-                            @continue($company->name == ($asset->company->name ?? ''))
-                            <option>{{ $company->name }}</option>
+                            @continue($company->id == ($asset->company->id ?? ''))
+                            <option value="{{ $company->id }}">
+                                {{ $company->name }}
+                            </option>
                         @endforeach
                     </select>
                 </td>
@@ -145,9 +189,15 @@
                     @foreach ($asset->assetsImage as $image)
                         <a href="/images/{{ $image->filename }}">
                         <img src="/images/{{ $image->filename }}" 
-                        alt="{{ $asset->name }}" height=100px></img>
-                        </a>
+                        alt="{{ $asset->name }}" height=100px></img></a>
+                        <input type="checkbox" name="imgDelete[]" value="{{ $image->id }}">
+                        @if ($image->deleted_at == NULL)
+                        Удалить
+                        @else
+                        Восстановить
+                        @endif
                     @endforeach
+                    <input type="file" name="imgAdd">Добавить
                 </td>
                 <td>
                     История обслуживания
@@ -159,6 +209,6 @@
                     <input type="submit" value="Сохранить">
                 </td>
             </tr>
-            </form>
+        </form>
     </x-slot>
 </x-layout>

@@ -60,5 +60,5 @@
                     <td>{{ $movement->created_at }}</td>
                     <td>{{ $movement->updated_at }}</td>
                 </tr>
-    </x-slot>       
+    </x-slot>
 </x-layout>

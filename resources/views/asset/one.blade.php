@@ -16,6 +16,11 @@
                 <td>Категория</td>
                 <td>Нач.локация</td>
             </tr>
+            @if ($asset->deleted_at !== NULL)
+            <tr>
+                <td colspan="9" bgcolor="red">Объект удален</td>
+            </tr>
+            @endif
             <tr>
                 <td>{{ $asset->name }}</td>
                 <td>{{ $asset->model }}</td>
@@ -43,7 +48,7 @@
             </tr>
             <tr>
                 <td>
-                        <a href="/location/{{ $asset->currentLocation->id }}">{{ $asset->currentLocation->name ?? 'УДАЛЕН' }}</a>
+                        <a href="/location/{{ $asset->currentLocation->id ?? 'УДАЛЕН' }}">{{ $asset->currentLocation->name ?? 'УДАЛЕН' }}</a>
                 </td>
                 <td>{{ $asset->scancode }}</td>
                 <td>{{ $asset->assetsScancodeType->name ?? 'УДАЛЕН' }}</td>
@@ -59,8 +64,10 @@
                     @foreach ($asset->assetsImage as $image)
                         <a href="/images/{{ $image->filename }}">
                         <img src="/images/{{ $image->filename }}" 
-                        alt="{{ $asset->name }}" height=100px></img>
-                        </a>
+                        alt="{{ $asset->name }}" height=100px></img></a>
+                        @if ($image->deleted_at !== NULL)
+                        Удален
+                        @endif
                     @endforeach
                 </td>
                 <td>
@@ -82,8 +89,8 @@
                     @else
                         <input type="submit" value="Восстановить">
                     @endif
-                </form>                
+                </form>
             </td>
             </tr>
-     </x-slot>    
+     </x-slot>
 </x-layout>

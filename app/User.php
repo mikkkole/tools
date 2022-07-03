@@ -89,10 +89,10 @@ class User extends Authenticatable
 
     public function fullName()
     {
-        $fullName = $this->name . ' ' .          
-        $this->patronymic . ' ' . 
+        $fullName = $this->name . ' ' .
+        $this->patronymic . ' ' .
         $this->surname;
-        
+
         return $fullName;
     }
 

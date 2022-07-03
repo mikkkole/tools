@@ -38,7 +38,13 @@ Route::match(['get', 'post'], '/asset/{id}', [AssetController::class, 'one'])->w
 
 Route::match(['get', 'post'], '/asset/edit', [AssetController::class, 'edit']);
 
-Route::get('/location/{id}', [LocationController::class, 'one'])->where('id', '[0-9]+');
+Route::match(['get', 'post'], '/asset/addNew', [AssetController::class, 'addNew']);
+
+Route::match(['get', 'post'], '/location/{id}', [LocationController::class, 'one'])->where('id', '[0-9]+');
+
+Route::match(['get', 'post'], '/location/edit', [LocationController::class, 'edit']);
+
+Route::match(['get', 'post'], '/location/addNew', [LocationController::class, 'addNew']);
 
 Route::get('/movement/{id}', [MovementController::class, 'one'])->where('id', '[0-9]+');
 

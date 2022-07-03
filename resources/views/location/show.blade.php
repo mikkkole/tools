@@ -16,7 +16,11 @@
                 <td>Изменен</td>
             </tr>
             @foreach ($locations as $location)
+            @if ($location->deleted_at !== NULL)
+                <tr bgcolor="red">
+                @else
                 <tr>
+                @endif
                     <td>
                         <a href="/location/{{ $location->id }}">{{ $location->name }}</a>
                     </td>
@@ -34,5 +38,17 @@
                     <td>{{ $location->updated_at }}</td>
                 </tr>
             @endforeach
-    </x-slot>       
+            <td  colspan="9">
+                <form action="/location/addNew" method="POST">
+                    @csrf
+                    Выбрать шаблон: 
+                    <select name="newLocationTemplate">
+                    <option>Нет</option>
+                    <option>Шаблон 1</option>
+                    <option>Шаблон 2</option>
+                    </select>
+                    <input type="submit" value="Добавить новую локацию">
+                </form>
+                </td>
+    </x-slot>
 </x-layout>

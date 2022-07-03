@@ -30,5 +30,23 @@
                     <td>{{ $location->created_at }}</td>
                     <td>{{ $location->updated_at }}</td>
                 </tr>
-    </x-slot>       
+                <tr>
+            <td colspan="9">
+                <form action="/location/edit" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $location->id }}">
+                    <input type="submit" value="Изменить">
+                </form>
+                <form action="" method="POST">
+                    @csrf
+                    <input type="hidden" name="delete" value="true">
+                    @if ($location->deleted_at == NULL)
+                        <input type="submit" value="Удалить">
+                    @else
+                        <input type="submit" value="Восстановить">
+                    @endif
+                </form>
+            </td>
+            </tr>
+    </x-slot>
 </x-layout>

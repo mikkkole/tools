@@ -45,10 +45,10 @@
                 <td  colspan="2">
                 <form action="" method="POST">
                     @csrf
-                    <input type="hidden" name="addNew" value="1">
+                    <input type="hidden" name="addNew" value="true">
                     <input name="addNewName">
-                    <input type="submit" value="Добавить новый">                    
-                </form>                
+                    <input type="submit" value="Добавить новый">
+                </form>
                 </td>
             </tr>
     </x-slot>    
