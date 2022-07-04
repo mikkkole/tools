@@ -75,6 +75,6 @@
                     </select>
                     <input type="submit" value="Добавить новый актив">
                 </form>
-                </td>
+            </td>
     </x-slot>
 </x-layout>

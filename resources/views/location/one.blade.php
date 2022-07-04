@@ -21,7 +21,7 @@
                     <td>{{ $location->locationStatus->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $location->locationHierarchy->name ?? 'УДАЛЕН' }}</td>
                     <td>
-                        <a href="/user/{{ $location->locationManager->id ?? 'УДАЛЕН' }}">{{ $location->locationManager->fullName() ?? 'УДАЛЕН' }}</a>
+                        <a href="/user/{{ $location->locationManager->id ?? 'УДАЛЕН' }}">{{ $location->locationManager !== NULL ?$location->locationManager->fullName() : 'УДАЛЕН' }}</a>
                     </td>
                     <td>
                         <a href="/location/{{ $location->locationParent->id ?? 'УДАЛЕН' }}">{{ $location->locationParent->name ?? 'УДАЛЕН' }}</a>
@@ -31,22 +31,22 @@
                     <td>{{ $location->updated_at }}</td>
                 </tr>
                 <tr>
-            <td colspan="9">
-                <form action="/location/edit" method="POST">
-                    @csrf
-                    <input type="hidden" name="id" value="{{ $location->id }}">
-                    <input type="submit" value="Изменить">
-                </form>
-                <form action="" method="POST">
-                    @csrf
-                    <input type="hidden" name="delete" value="true">
-                    @if ($location->deleted_at == NULL)
-                        <input type="submit" value="Удалить">
-                    @else
-                        <input type="submit" value="Восстановить">
-                    @endif
-                </form>
-            </td>
-            </tr>
+                    <td colspan="9">
+                        <form action="/location/edit" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $location->id }}">
+                            <input type="submit" value="Изменить">
+                        </form>
+                        <form action="" method="POST">
+                            @csrf
+                            <input type="hidden" name="delete" value="true">
+                            @if ($location->deleted_at == NULL)
+                                <input type="submit" value="Удалить">
+                            @else
+                                <input type="submit" value="Восстановить">
+                            @endif
+                        </form>
+                    </td>
+                </tr>
     </x-slot>
 </x-layout>

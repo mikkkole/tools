@@ -28,7 +28,7 @@
                     <td>{{ $location->locationStatus->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $location->locationHierarchy->name ?? 'УДАЛЕН' }}</td>
                     <td>
-                        <a href="/user/{{ $location->locationManager->id ?? 'УДАЛЕН' }}">{{ $location->locationManager->fullName() ?? 'УДАЛЕН' }}</a>
+                        <a href="/user/{{ $location->locationManager->id ?? 'УДАЛЕН' }}">{{ $location->locationManager !== NULL ?$location->locationManager->fullName() : 'УДАЛЕН' }}</a>
                     </td>
                     <td>
                         <a href="/location/{{ $location->locationParent->id ?? 'УДАЛЕН' }}">{{ $location->locationParent->name ?? 'УДАЛЕН' }}</a>

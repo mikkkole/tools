@@ -69,12 +69,17 @@ class User extends Authenticatable
 
     public function usersImage()
     {
-        return $this->belongsToMany(UsersImage::class);
+        return $this->hasMany(UsersImage::class)->withTrashed();
     }
-        
+
+    public function usersImageFirst($userId)
+    {
+        return UsersImage::where('user_id', $userId)->first();
+    }
+
     public function usersAttachment()
     {
-        return $this->belongsToMany(UsersAttachment::class);
+        return $this->hasMany(UsersAttachment::class)->withTrashed();
     }
 
     public function company()

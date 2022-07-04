@@ -43,16 +43,16 @@
                     <td>{{ $movement->movementStatus->name ?? 'УДАЛЕН' }}</td>
                     <td>{{ $movement->confirmed_at }}</td>
                     <td>
-                        <a href="/user/{{ $movement->userComfirmed->id ?? 'УДАЛЕН' }}">{{ $movement->userComfirmed->fullName() ?? 'УДАЛЕН' }}
+                        <a href="/user/{{ $movement->userComfirmed->id ?? 'УДАЛЕН' }}">{{ $movement->userComfirmed !== NULL ? $movement->userComfirmed->fullName() : 'УДАЛЕН' }}
                     </td>
                     <td>
-                        <a href="/user/{{ $movement->userSend->id ?? 'УДАЛЕН' }}">{{ $movement->userSend->fullName() ?? 'УДАЛЕН' }}
+                        <a href="/user/{{ $movement->userSend->id ?? 'УДАЛЕН' }}">{{ $movement->userSend !== NULL ? $movement->userSend->fullName() : 'УДАЛЕН' }}
                     </td>
                     <td>
-                        <a href="/user/{{ $movement->userRecieved->id ?? 'УДАЛЕН' }}">{{ $movement->userRecieved->fullName() ?? 'УДАЛЕН' }}
+                        <a href="/user/{{ $movement->userRecieved->id ?? 'УДАЛЕН' }}">{{ $movement->userRecieved !== NULL ? $movement->userRecieved->fullName() : 'УДАЛЕН' }}
                     </td>
                     <td>
-                        <a href="/user/{{ $movement->userWrited->id ?? 'УДАЛЕН' }}">{{ $movement->userWrited->fullName() ?? 'УДАЛЕН' }}
+                        <a href="/user/{{ $movement->userWrited->id ?? 'УДАЛЕН' }}">{{ $movement->userWrited !== NULL ? $movement->userWrited->fullName() : 'УДАЛЕН' }}
                     </td>
                     <td>{{ $movement->returned_at }}</td>
                     <td>{{ $movement->movementCostCenter->name ?? 'УДАЛЕН' }}</td>

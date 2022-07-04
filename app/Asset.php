@@ -61,7 +61,7 @@ class Asset extends Model
 
     public function assetsAttachment()
     {
-        return $this->belongsToMany(AssetsAttachment::class);
+        return $this->hasMany(AssetsAttachment::class)->withTrashed();
     }
         
     public function defaultLocation()
