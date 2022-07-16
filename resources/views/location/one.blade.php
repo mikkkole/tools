@@ -15,6 +15,11 @@
                 <td>Создан</td>
                 <td>Изменен</td>
             </tr>
+            @if ($location->deleted_at !== NULL)
+            <tr>
+                <td colspan="9" bgcolor="red">Объект удален</td>
+            </tr>
+            @endif
                 <tr>
                     <td>{{ $location->name }}</td>
                     <td>{{ $location->locationType->name ?? 'УДАЛЕН' }}</td>

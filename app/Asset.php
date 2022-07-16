@@ -63,7 +63,7 @@ class Asset extends Model
     {
         return $this->hasMany(AssetsAttachment::class)->withTrashed();
     }
-        
+
     public function defaultLocation()
     {
         return $this->belongsTo(Location::class);
@@ -77,5 +77,10 @@ class Asset extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function assetsList()
+    {
+        return $this->hasMany(AssetsList::class)->withTrashed();
     }
 }

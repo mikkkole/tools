@@ -11,12 +11,12 @@ class AssetsList extends Model
     
     public function asset()
     {
-        return $this->belongsTo(Asset::class);
+        return $this->belongsTo(Asset::class)->withTrashed();
     }
     
     public function movement()
     {
-        return $this->belongsTo(Movement::class);
+        return $this->belongsTo(Movement::class)->withTrashed();
     }
     
 }

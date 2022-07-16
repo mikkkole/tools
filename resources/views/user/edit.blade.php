@@ -30,7 +30,6 @@
                 <td><input name="newEmail_verified_at" value="{{ $user->email_verified_at }}"></td>
                 <td><input name="newLogin" value="{{ $user->login }}"></td>
                 <td><input name="newPosition" value="{{ $user->position }}"></td>
-
                 <td>
                     <select name="newUserRoleId">
                         <option value="{{ $user->userRole->id ?? NULL }}">
@@ -38,13 +37,12 @@
                         </option>
                         @foreach ($userRoles as $userRole)
                              @continue($userRole->id == ($user->userRole->id ?? ''))
-                            <option value="{{$userRole->id }}">
+                            <option value="{{ $userRole->id }}">
                                  {{ $userRole->name }}
-                             </option>
+                            </option>
                         @endforeach
                     </select>
                 </td>
-
                 <td>
                     <select name="newUserTypeId">
                         <option value="{{ $user->userType->id ?? NULL }}">
@@ -52,13 +50,12 @@
                         </option>
                         @foreach ($userTypes as $userType)
                              @continue($userType->id == ($user->userType->id ?? ''))
-                            <option value="{{$userType->id }}">
+                            <option value="{{ $userType->id }}">
                                  {{ $userType->name }}
-                             </option>
+                            </option>
                         @endforeach
                     </select>
                 </td>
-
                 <td>
                     <select name="newUserResponsibilityId">
                         <option value="{{ $user->userResponsibility->id ?? NULL }}">
@@ -66,13 +63,12 @@
                         </option>
                         @foreach ($userResponsibilities as $userResponsibility)
                              @continue($userResponsibility->id == ($user->userResponsibility->id ?? ''))
-                            <option value="{{$userResponsibility->id }}">
+                            <option value="{{ $userResponsibility->id }}">
                                  {{ $userResponsibility->name }}
-                             </option>
+                            </option>
                         @endforeach
                     </select>
                 </td>
-
                 <td>
                     <select name="newUserLanguageId">
                         <option value="{{ $user->userLanguage->id ?? NULL }}">
@@ -80,13 +76,12 @@
                         </option>
                         @foreach ($userLanguages as $userLanguage)
                              @continue($userLanguage->id == ($user->userLanguage->id ?? ''))
-                            <option value="{{$userLanguage->id }}">
+                            <option value="{{ $userLanguage->id }}">
                                  {{ $userLanguage->name }}
-                             </option>
+                            </option>
                         @endforeach
                     </select>
                 </td>
-
                 <td>
                     <select name="newCompanyId">
                         <option value="{{ $user->company->id ?? NULL }}">
@@ -100,7 +95,6 @@
                         @endforeach
                     </select>
                 </td>
-
                 <td>{{ $user->created_at }}</td>
                 <td>{{ $user->updated_at }}</td>
             </tr>

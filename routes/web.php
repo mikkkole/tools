@@ -46,7 +46,11 @@ Route::match(['get', 'post'], '/location/edit', [LocationController::class, 'edi
 
 Route::match(['get', 'post'], '/location/addNew', [LocationController::class, 'addNew']);
 
-Route::get('/movement/{id}', [MovementController::class, 'one'])->where('id', '[0-9]+');
+Route::match(['get', 'post'], '/movement/{id}', [MovementController::class, 'one'])->where('id', '[0-9]+');
+
+Route::match(['get', 'post'], '/movement/edit', [MovementController::class, 'edit']);
+
+Route::match(['get', 'post'], '/movement/addNew', [MovementController::class, 'addNew']);
 
 Route::match(['get', 'post'], '/user/{id}', [UserController::class, 'one'])->where('id', '[0-9]+');
 

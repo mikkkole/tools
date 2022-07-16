@@ -50,6 +50,15 @@ class LocationController extends Controller
             $location->save();
             $id = $location->id;
         }
+
+        if ($request->input('delete') =='true') {
+            $deleteItem = Location::withTrashed()->where('id', $id)->first();
+            if ($deleteItem->deleted_at == NULL) {
+                $deleteItem->delete();
+            } else {
+                $deleteItem->restore();
+            }
+        }
         
         $location = Location::withTrashed()->where('id', $id)->first();
         return view('location.one', [
